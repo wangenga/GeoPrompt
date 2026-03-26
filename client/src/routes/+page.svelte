@@ -24,7 +24,7 @@
 
     async function fetchClue(attempt) {
         state.loading = true
-        const res = await fetch('http://localhost:3000/api/clue', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/clue`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ attempt })
@@ -36,7 +36,7 @@
     }
     
     async function handleGuess(guess) {
-        const res = await fetch('http://localhost:3000/api/guess', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/guess`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ guess, city: state.city })
